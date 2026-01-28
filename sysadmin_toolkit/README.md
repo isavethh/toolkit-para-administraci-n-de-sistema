@@ -2,15 +2,15 @@
 
 Un conjunto de herramientas de administración de sistemas escritas en Python.
 
-## 📋 Características
+## Características
 
-### 1. 🔍 Escáner de Puertos (`port_scanner.py`)
+### 1. Escáner de Puertos (`port_scanner.py`)
 - Escaneo rápido de puertos comunes (22, 80, 443, etc.)
 - Escaneo completo de rangos de puertos
 - Detección automática de servicios
 - Escaneo multi-hilo para mayor velocidad
 
-### 2. 📋 Parser de Logs (`log_parser.py`)
+### 2. Parser de Logs (`log_parser.py`)
 - Soporte para múltiples formatos (syslog, Apache, nginx, Windows)
 - Detección automática de formato
 - Filtrado por nivel de severidad (ERROR, WARNING, INFO, etc.)
@@ -18,7 +18,7 @@ Un conjunto de herramientas de administración de sistemas escritas en Python.
 - Generación de reportes de errores
 - Estadísticas y resúmenes
 
-### 3. 📊 Monitor del Sistema (`system_monitor.py`)
+### 3. Monitor del Sistema (`system_monitor.py`)
 - Monitoreo de CPU (uso, frecuencia, núcleos)
 - Monitoreo de memoria RAM y swap
 - Monitoreo de discos (uso, particiones, I/O)
@@ -27,7 +27,7 @@ Un conjunto de herramientas de administración de sistemas escritas en Python.
 - Dashboard en tiempo real
 - Sistema de alertas configurables
 
-## 🚀 Instalación
+## Instalación
 
 ```bash
 # Clonar o descargar el proyecto
@@ -37,7 +37,7 @@ cd sysadmin_toolkit
 pip install -r requirements.txt
 ```
 
-## 💻 Uso
+## Uso
 
 ### Ejecutar el menú principal:
 ```bash
@@ -57,12 +57,12 @@ python log_parser.py
 python system_monitor.py
 ```
 
-## 📦 Dependencias
+## Dependencias
 
 - **Python 3.7+**
 - **psutil** - Para monitoreo del sistema
 
-## 🔧 Configuración
+🔧 Configuración
 
 ### Umbrales de alerta (system_monitor.py)
 ```python
@@ -72,7 +72,7 @@ monitor.set_threshold("memory_percent", 85.0)   # Alerta si RAM > 85%
 monitor.set_threshold("disk_percent", 90.0)     # Alerta si Disco > 90%
 ```
 
-## 📝 Ejemplos
+Ejemplos
 
 ### Escanear puertos de localhost:
 ```python
@@ -120,15 +120,9 @@ print(f"RAM usada: {mem['ram']['used_gb']} GB")
 processes = monitor.get_process_list(10, sort_by="memory")
 ```
 
-## ⚠️ Notas de Seguridad
+Notas
 
 - El escáner de puertos debe usarse solo en sistemas propios o con autorización
 - Algunos módulos requieren permisos de administrador para acceder a cierta información
 - El monitor del sistema puede consumir recursos si se ejecuta continuamente
 
-## 📄 Licencia
-
-Este proyecto es de uso libre para fines educativos y de administración de sistemas.
-
----
-*Creado con Python 🐍 | Enero 2026*
