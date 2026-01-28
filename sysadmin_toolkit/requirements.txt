@@ -1,0 +1,4 @@
+# Dependencias del SysAdmin Toolkit
+# Instalar con: pip install -r requirements.txt
+
+psutil>=5.9.0    # Para el monitor del sistema (CPU, memoria, disco, red, procesos)
