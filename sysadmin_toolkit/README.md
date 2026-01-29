@@ -2,6 +2,7 @@
 
 Conjunto de herramientas de línea de comandos para administración de sistemas, desarrollado en Python. Permite realizar tareas comunes de diagnóstico, monitoreo y mantenimiento de servidores y estaciones de trabajo.
 
+<<<<<<< HEAD
 ## Contenido
 
 - [Requisitos](#requisitos)
@@ -16,6 +17,32 @@ Conjunto de herramientas de línea de comandos para administración de sistemas,
 - Python 3.7 o superior
 - Sistema operativo: Windows, Linux o macOS
 - Permisos de administrador (para algunas funciones de monitoreo)
+=======
+## Características
+
+### 1. Escáner de Puertos (`port_scanner.py`)
+- Escaneo rápido de puertos comunes (22, 80, 443, etc.)
+- Escaneo completo de rangos de puertos
+- Detección automática de servicios
+- Escaneo multi-hilo para mayor velocidad
+
+### 2. Parser de Logs (`log_parser.py`)
+- Soporte para múltiples formatos (syslog, Apache, nginx, Windows)
+- Detección automática de formato
+- Filtrado por nivel de severidad (ERROR, WARNING, INFO, etc.)
+- Búsqueda por palabras clave y expresiones regulares
+- Generación de reportes de errores
+- Estadísticas y resúmenes
+
+### 3. Monitor del Sistema (`system_monitor.py`)
+- Monitoreo de CPU (uso, frecuencia, núcleos)
+- Monitoreo de memoria RAM y swap
+- Monitoreo de discos (uso, particiones, I/O)
+- Monitoreo de red (tráfico, conexiones, interfaces)
+- Lista de procesos con mayor consumo
+- Dashboard en tiempo real
+- Sistema de alertas configurables
+>>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
 
 ## Instalación
 
@@ -24,6 +51,7 @@ cd sysadmin_toolkit
 pip install -r requirements.txt
 ```
 
+<<<<<<< HEAD
 ## Módulos
 
 ### 1. Escáner de Puertos (`port_scanner.py`)
@@ -87,6 +115,9 @@ Crea y administra copias de seguridad de archivos y directorios.
 ## Uso
 
 ### Menú interactivo
+=======
+## Uso
+>>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
 
 ```bash
 python main.py
@@ -104,15 +135,36 @@ python network_utils.py
 python backup_manager.py
 ```
 
+<<<<<<< HEAD
 ## Ejemplos
+=======
+## Dependencias
+>>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
 
 ### Escanear puertos de un servidor
 
+<<<<<<< HEAD
+=======
+🔧 Configuración
+
+### Umbrales de alerta (system_monitor.py)
+>>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
 ```python
 from port_scanner import scan_ports, quick_scan
 
+<<<<<<< HEAD
 # Escaneo rápido (puertos comunes)
 quick_scan("192.168.1.1")
+=======
+Ejemplos
+
+### Escanear puertos de localhost:
+```python
+from port_scanner import quick_scan, scan_ports
+
+# Escaneo rápido
+quick_scan("localhost")
+>>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
 
 # Escaneo de rango específico
 scan_ports("192.168.1.1", start_port=1, end_port=1000)
@@ -155,11 +207,16 @@ print(f"RAM: {mem['ram']['percent_used']}%")
 monitor.set_threshold("cpu_percent", 90.0)
 ```
 
+<<<<<<< HEAD
 ### Hacer ping a un host
+=======
+Notas
+>>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
 
 ```python
 from network_utils import NetworkUtils
 
+<<<<<<< HEAD
 utils = NetworkUtils()
 
 # Ping simple
@@ -221,3 +278,5 @@ sysadmin_toolkit/
 ## Licencia
 
 Uso libre para fines educativos y de administración de sistemas.
+=======
+>>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
