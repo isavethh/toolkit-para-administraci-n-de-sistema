@@ -5,8 +5,11 @@ Este toolkit incluye:
 - Escáner de puertos
 - Parser de logs
 - Monitor del sistema
+- Utilidades de red
+- Gestor de backups
 
 Autor: SysAdmin Toolkit
+Versión: 2.0
 Fecha: Enero 2026
 """
 import sys
@@ -24,7 +27,7 @@ def show_banner():
 ║   ███████║   ██║   ███████║██║  ██║██████╔╝██║ ╚═╝ ██║██║██║ ╚████║
 ║   ╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══║
 ║                                                                  ║
-║                    🔧 TOOLKIT v1.0                               ║
+║                    🔧 TOOLKIT v2.0                               ║
 ║         Herramientas de Administración de Sistemas               ║
 ║                                                                  ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -48,7 +51,13 @@ def show_menu():
 │   [3] 📊 Monitor del Sistema                                     │
 │       Monitorea CPU, memoria, disco y red                        │
 │                                                                  │
-│   [4] ❌ Salir                                                    │
+│   [4] 🌐 Utilidades de Red                                       │
+│       Ping, traceroute, DNS y diagnósticos                       │
+│                                                                  │
+│   [5] 💾 Gestor de Backups                                       │
+│       Crea y gestiona copias de seguridad                        │
+│                                                                  │
+│   [6] ❌ Salir                                                    │
 │                                                                  │
 └──────────────────────────────────────────────────────────────────┘
     """)
@@ -180,13 +189,39 @@ def run_system_monitor():
         print("  Opción no válida")
 
 
+def run_network_utils():
+    """Ejecuta las utilidades de red."""
+    print("\n" + "="*60)
+    print("  UTILIDADES DE RED")
+    print("="*60)
+    
+    try:
+        from network_utils import run_network_diagnostic
+        run_network_diagnostic()
+    except ImportError as e:
+        print(f"\n  [ERROR] No se pudo cargar el módulo: {e}")
+
+
+def run_backup_manager():
+    """Ejecuta el gestor de backups."""
+    print("\n" + "="*60)
+    print("  GESTOR DE BACKUPS")
+    print("="*60)
+    
+    try:
+        from backup_manager import run_backup_manager as run_backup
+        run_backup()
+    except ImportError as e:
+        print(f"\n  [ERROR] No se pudo cargar el módulo: {e}")
+
+
 def main():
     """Función principal del programa."""
     show_banner()
     
     while True:
         show_menu()
-        opcion = input("  Seleccione una opción (1-4): ").strip()
+        opcion = input("  Seleccione una opción (1-6): ").strip()
         
         if opcion == "1":
             run_port_scanner()
@@ -195,6 +230,10 @@ def main():
         elif opcion == "3":
             run_system_monitor()
         elif opcion == "4":
+            run_network_utils()
+        elif opcion == "5":
+            run_backup_manager()
+        elif opcion == "6":
             print("\n  ¡Hasta luego! 👋\n")
             sys.exit(0)
         else:
