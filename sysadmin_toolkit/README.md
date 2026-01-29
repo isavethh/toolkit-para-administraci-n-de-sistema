@@ -1,8 +1,7 @@
 # SysAdmin Toolkit
 
-Conjunto de herramientas de línea de comandos para administración de sistemas, desarrollado en Python. Permite realizar tareas comunes de diagnóstico, monitoreo y mantenimiento de servidores y estaciones de trabajo.
+Conjunto de herramientas de línea de comandos para administración de sistemas, desarrollado en Python. Permite realizar tareas comunes de diagnóstico, monitoreo, mantenimiento y seguridad en servidores y estaciones de trabajo.
 
-<<<<<<< HEAD
 ## Contenido
 
 - [Requisitos](#requisitos)
@@ -16,33 +15,7 @@ Conjunto de herramientas de línea de comandos para administración de sistemas,
 
 - Python 3.7 o superior
 - Sistema operativo: Windows, Linux o macOS
-- Permisos de administrador (para algunas funciones de monitoreo)
-=======
-## Características
-
-### 1. Escáner de Puertos (`port_scanner.py`)
-- Escaneo rápido de puertos comunes (22, 80, 443, etc.)
-- Escaneo completo de rangos de puertos
-- Detección automática de servicios
-- Escaneo multi-hilo para mayor velocidad
-
-### 2. Parser de Logs (`log_parser.py`)
-- Soporte para múltiples formatos (syslog, Apache, nginx, Windows)
-- Detección automática de formato
-- Filtrado por nivel de severidad (ERROR, WARNING, INFO, etc.)
-- Búsqueda por palabras clave y expresiones regulares
-- Generación de reportes de errores
-- Estadísticas y resúmenes
-
-### 3. Monitor del Sistema (`system_monitor.py`)
-- Monitoreo de CPU (uso, frecuencia, núcleos)
-- Monitoreo de memoria RAM y swap
-- Monitoreo de discos (uso, particiones, I/O)
-- Monitoreo de red (tráfico, conexiones, interfaces)
-- Lista de procesos con mayor consumo
-- Dashboard en tiempo real
-- Sistema de alertas configurables
->>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
+- Permisos de administrador (para algunas funciones)
 
 ## Instalación
 
@@ -51,14 +24,12 @@ cd sysadmin_toolkit
 pip install -r requirements.txt
 ```
 
-<<<<<<< HEAD
 ## Módulos
 
 ### 1. Escáner de Puertos (`port_scanner.py`)
 
 Detecta puertos abiertos en un host local o remoto mediante conexiones TCP.
 
-**Características:**
 - Escaneo rápido de puertos comunes (22, 80, 443, etc.)
 - Escaneo de rangos personalizados
 - Ejecución multi-hilo para mayor velocidad
@@ -68,7 +39,6 @@ Detecta puertos abiertos en un host local o remoto mediante conexiones TCP.
 
 Analiza archivos de registro del sistema para extraer información relevante.
 
-**Características:**
 - Soporte para formatos: syslog, Apache, nginx, Windows Event
 - Detección automática del formato
 - Filtrado por nivel de severidad (ERROR, WARNING, INFO)
@@ -79,7 +49,6 @@ Analiza archivos de registro del sistema para extraer información relevante.
 
 Muestra el estado actual de los recursos del equipo.
 
-**Características:**
 - Uso de CPU (porcentaje, núcleos, frecuencia)
 - Memoria RAM y swap
 - Espacio en disco por partición
@@ -92,8 +61,7 @@ Muestra el estado actual de los recursos del equipo.
 
 Herramientas para diagnóstico de conectividad de red.
 
-**Características:**
-- Ping a hosts con estadísticas
+- Ping a hosts con estadísticas de latencia
 - Traceroute con tiempos por salto
 - Búsqueda DNS directa e inversa
 - Verificación de disponibilidad de múltiples hosts
@@ -104,7 +72,6 @@ Herramientas para diagnóstico de conectividad de red.
 
 Crea y administra copias de seguridad de archivos y directorios.
 
-**Características:**
 - Compresión en formato ZIP o TAR.GZ
 - Exclusión de patrones (ej: `__pycache__`, `.git`)
 - Restauración de backups
@@ -112,18 +79,49 @@ Crea y administra copias de seguridad de archivos y directorios.
 - Registro de backups en manifiesto JSON
 - Estadísticas de espacio utilizado
 
+### 6. Limpiador de Disco (`disk_cleaner.py`)
+
+Libera espacio eliminando archivos temporales y basura del sistema.
+
+- Escaneo de carpetas temporales del sistema
+- Búsqueda de archivos antiguos por fecha
+- Detección de archivos grandes
+- Búsqueda de archivos duplicados
+- Vista de uso de disco por partición
+- Vaciado de papelera de reciclaje
+
+### 7. Gestor de Servicios (`service_manager.py`)
+
+Administra servicios del sistema operativo.
+
+- Listar servicios activos e inactivos
+- Buscar servicios por nombre
+- Iniciar, detener y reiniciar servicios
+- Habilitar/deshabilitar inicio automático
+- Compatible con Windows (SC), Linux (systemd) y macOS (launchctl)
+
+### 8. Verificador de Seguridad (`security_checker.py`)
+
+Audita configuraciones de seguridad básicas del sistema.
+
+- Detección de puertos peligrosos abiertos
+- Verificación del estado del firewall
+- Análisis de política de contraseñas
+- Revisión de cuentas de usuario
+- Estado del antivirus (Windows Defender)
+- Detección de conexiones sospechosas
+- Verificación de integridad de archivos (hash)
+- Generación de reportes de auditoría
+
 ## Uso
 
 ### Menú interactivo
-=======
-## Uso
->>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
 
 ```bash
 python main.py
 ```
 
-Esto abre un menú donde puedes seleccionar la herramienta que necesitas.
+Abre un menú donde puede seleccionar la herramienta que necesita.
 
 ### Ejecución individual de módulos
 
@@ -133,150 +131,122 @@ python log_parser.py
 python system_monitor.py
 python network_utils.py
 python backup_manager.py
+python disk_cleaner.py
+python service_manager.py
+python security_checker.py
 ```
 
-<<<<<<< HEAD
 ## Ejemplos
-=======
-## Dependencias
->>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
 
-### Escanear puertos de un servidor
+### Escanear puertos
 
-<<<<<<< HEAD
-=======
-🔧 Configuración
-
-### Umbrales de alerta (system_monitor.py)
->>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
 ```python
 from port_scanner import scan_ports, quick_scan
 
-<<<<<<< HEAD
-# Escaneo rápido (puertos comunes)
 quick_scan("192.168.1.1")
-=======
-Ejemplos
-
-### Escanear puertos de localhost:
-```python
-from port_scanner import quick_scan, scan_ports
-
-# Escaneo rápido
-quick_scan("localhost")
->>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
-
-# Escaneo de rango específico
 scan_ports("192.168.1.1", start_port=1, end_port=1000)
 ```
 
-### Analizar un archivo de log
+### Analizar logs
 
 ```python
 from log_parser import LogParser
 
 parser = LogParser()
 parser.parse_file("/var/log/syslog")
-
-# Obtener solo errores
 errores = parser.filter_by_level("ERROR")
-
-# Buscar por palabra clave
-resultados = parser.filter_by_keyword("connection failed")
-
-# Ver resumen
 print(parser.get_summary())
 ```
 
-### Monitorear recursos del sistema
+### Monitorear sistema
 
 ```python
 from system_monitor import SystemMonitor
 
 monitor = SystemMonitor()
-
-# Obtener uso de CPU
-cpu = monitor.get_cpu_stats()
-print(f"CPU: {cpu['percent_usage']}%")
-
-# Obtener uso de memoria
-mem = monitor.get_memory_stats()
-print(f"RAM: {mem['ram']['percent_used']}%")
-
-# Configurar umbral de alerta
-monitor.set_threshold("cpu_percent", 90.0)
+print(f"CPU: {monitor.get_cpu_stats()['percent_usage']}%")
+print(f"RAM: {monitor.get_memory_stats()['ram']['percent_used']}%")
 ```
 
-<<<<<<< HEAD
-### Hacer ping a un host
-=======
-Notas
->>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7
+### Diagnóstico de red
 
 ```python
 from network_utils import NetworkUtils
 
-<<<<<<< HEAD
 utils = NetworkUtils()
-
-# Ping simple
 resultado = utils.ping("google.com", count=4)
-print(f"Tiempo promedio: {resultado['avg_time_ms']} ms")
-
-# Verificar múltiples hosts
-hosts = ["google.com", "github.com", "192.168.1.1"]
-resultados = utils.check_host_availability(hosts)
+print(f"Latencia: {resultado['avg_time_ms']} ms")
 ```
 
-### Crear un backup
+### Crear backup
 
 ```python
 from backup_manager import BackupManager
 
-manager = BackupManager("mis_backups")
+manager = BackupManager("backups")
+manager.create_backup("./proyecto", compression="zip")
+```
 
-# Crear backup comprimido
-resultado = manager.create_backup(
-    source_path="./proyecto",
-    backup_name="proyecto_v1",
-    compression="zip"
-)
+### Limpiar disco
 
-# Listar backups existentes
-backups = manager.list_backups()
+```python
+from disk_cleaner import DiskCleaner
 
-# Restaurar un backup
-manager.restore_backup(backup_id=1, restore_path="./restaurado")
+cleaner = DiskCleaner()
+result = cleaner.scan_temp_folders()
+print(f"Espacio a liberar: {cleaner._format_size(result['total_size'])}")
+```
+
+### Gestionar servicios
+
+```python
+from service_manager import ServiceManager
+
+manager = ServiceManager()
+services = manager.list_services(filter_running=True)
+manager.restart_service("nombre_servicio")
+```
+
+### Auditoría de seguridad
+
+```python
+from security_checker import SecurityChecker
+
+checker = SecurityChecker()
+results = checker.run_full_audit()
+print(checker.generate_report())
 ```
 
 ## Estructura del proyecto
 
 ```
 sysadmin_toolkit/
-├── main.py              # Menú principal
+├── main.py              # Menú principal (v3.0)
 ├── port_scanner.py      # Escáner de puertos TCP
 ├── log_parser.py        # Analizador de logs
 ├── system_monitor.py    # Monitor de recursos
 ├── network_utils.py     # Utilidades de red
 ├── backup_manager.py    # Gestor de backups
+├── disk_cleaner.py      # Limpiador de disco
+├── service_manager.py   # Gestor de servicios
+├── security_checker.py  # Verificador de seguridad
 ├── requirements.txt     # Dependencias
 └── README.md            # Documentación
 ```
 
 ## Dependencias
 
-| Paquete | Versión | Descripción |
-|---------|---------|-------------|
-| psutil  | >=5.9.0 | Acceso a información del sistema (CPU, memoria, disco, red, procesos) |
+| Paquete | Versión | Uso |
+|---------|---------|-----|
+| psutil  | >=5.9.0 | Monitor de sistema, limpiador de disco |
 
 ## Notas
 
-- Algunas funciones requieren permisos de administrador para acceder a información del sistema.
-- El escaneo de puertos puede ser detectado por firewalls. Úselo solo en redes donde tenga autorización.
-- Los backups se almacenan por defecto en la carpeta `backups/` del directorio actual.
+- Algunas funciones requieren permisos de administrador.
+- El escaneo de puertos puede ser detectado por firewalls. Use solo en redes autorizadas.
+- Los backups se almacenan por defecto en la carpeta `backups/`.
+- La auditoría de seguridad proporciona una revisión básica, no reemplaza herramientas especializadas.
 
 ## Licencia
 
 Uso libre para fines educativos y de administración de sistemas.
-=======
->>>>>>> c045bfeaa28f12c49e6e67f097ddb51d678b37b7

@@ -7,9 +7,12 @@ Este toolkit incluye:
 - Monitor del sistema
 - Utilidades de red
 - Gestor de backups
+- Limpiador de disco
+- Gestor de servicios
+- Verificador de seguridad
 
 Autor: SysAdmin Toolkit
-Versión: 2.0
+Versión: 3.0
 Fecha: Enero 2026
 """
 import sys
@@ -27,7 +30,7 @@ def show_banner():
 ║   ███████║   ██║   ███████║██║  ██║██████╔╝██║ ╚═╝ ██║██║██║ ╚████║
 ║   ╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚═════╝ ╚═╝     ╚═╝╚═╝╚═╝  ╚═══║
 ║                                                                  ║
-║                    🔧 TOOLKIT v2.0                               ║
+║                    🔧 TOOLKIT v3.0                               ║
 ║         Herramientas de Administración de Sistemas               ║
 ║                                                                  ║
 ╚══════════════════════════════════════════════════════════════════╝
@@ -57,7 +60,16 @@ def show_menu():
 │   [5] 💾 Gestor de Backups                                       │
 │       Crea y gestiona copias de seguridad                        │
 │                                                                  │
-│   [6] ❌ Salir                                                    │
+│   [6] 🧹 Limpiador de Disco                                      │
+│       Elimina archivos temporales y libera espacio               │
+│                                                                  │
+│   [7] ⚙️  Gestor de Servicios                                     │
+│       Administra servicios del sistema operativo                 │
+│                                                                  │
+│   [8] 🛡️  Verificador de Seguridad                                │
+│       Audita configuraciones de seguridad                        │
+│                                                                  │
+│   [9] ❌ Salir                                                    │
 │                                                                  │
 └──────────────────────────────────────────────────────────────────┘
     """)
@@ -215,13 +227,52 @@ def run_backup_manager():
         print(f"\n  [ERROR] No se pudo cargar el módulo: {e}")
 
 
+def run_disk_cleaner():
+    """Ejecuta el limpiador de disco."""
+    print("\n" + "="*60)
+    print("  LIMPIADOR DE DISCO")
+    print("="*60)
+    
+    try:
+        from disk_cleaner import run_disk_cleaner as run_cleaner
+        run_cleaner()
+    except ImportError as e:
+        print(f"\n  [ERROR] No se pudo cargar el módulo: {e}")
+
+
+def run_service_manager():
+    """Ejecuta el gestor de servicios."""
+    print("\n" + "="*60)
+    print("  GESTOR DE SERVICIOS")
+    print("="*60)
+    
+    try:
+        from service_manager import run_service_manager as run_services
+        run_services()
+    except ImportError as e:
+        print(f"\n  [ERROR] No se pudo cargar el módulo: {e}")
+
+
+def run_security_checker():
+    """Ejecuta el verificador de seguridad."""
+    print("\n" + "="*60)
+    print("  VERIFICADOR DE SEGURIDAD")
+    print("="*60)
+    
+    try:
+        from security_checker import run_security_checker as run_security
+        run_security()
+    except ImportError as e:
+        print(f"\n  [ERROR] No se pudo cargar el módulo: {e}")
+
+
 def main():
     """Función principal del programa."""
     show_banner()
     
     while True:
         show_menu()
-        opcion = input("  Seleccione una opción (1-6): ").strip()
+        opcion = input("  Seleccione una opción (1-9): ").strip()
         
         if opcion == "1":
             run_port_scanner()
@@ -234,6 +285,12 @@ def main():
         elif opcion == "5":
             run_backup_manager()
         elif opcion == "6":
+            run_disk_cleaner()
+        elif opcion == "7":
+            run_service_manager()
+        elif opcion == "8":
+            run_security_checker()
+        elif opcion == "9":
             print("\n  ¡Hasta luego! 👋\n")
             sys.exit(0)
         else:
